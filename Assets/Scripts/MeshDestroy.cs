@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeshDestroy : MonoBehaviour
+public class MeshDestroy : Interactable
 {
     private bool edgeSet = false;
     private Vector3 edgeVertex = Vector3.zero;
@@ -22,10 +22,7 @@ public class MeshDestroy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            DestroyMesh();
-        }
+
     }
 
     private void DestroyMesh()
@@ -298,5 +295,10 @@ public class MeshDestroy : MonoBehaviour
 
         }
 
+    }
+
+    protected override void Interact()
+    {
+        DestroyMesh();
     }
 }
