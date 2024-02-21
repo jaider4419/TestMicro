@@ -22,7 +22,7 @@ public class LabHelmet : Interactable
 
     protected override void Interact()
     {
-        SceneManager.LoadScene("oki");
+        SceneManager.LoadScene("FlatBeforeElevator");
         Destroy(gameObject);
         Destroy(fartingthing);
     }
