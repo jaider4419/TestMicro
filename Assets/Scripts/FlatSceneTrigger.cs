@@ -23,7 +23,7 @@ public class FlatSceneTrigger : Interactable
     {
         Debug.Log("Scene change.");
         Destroy(gameObject);
-        SceneManager.LoadScene("meows");
+        SceneManager.LoadScene("FlatAfterElevator");
 
     }
 }

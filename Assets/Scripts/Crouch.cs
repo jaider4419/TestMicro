@@ -30,15 +30,14 @@ public class Crouch : MonoBehaviour
         // Adjust player's height based on crouch state (adjust as per your player's setup)
         if (isCrouching)
         {
-            transform.localScale = new Vector3(1, 0.5f, 1); // Example scale for crouching
+            transform.localScale = new Vector3(1, 0.5f, 1);
         }
         else
         {
-            transform.localScale = new Vector3(1, 1f, 1); // Example scale for standing
+            transform.localScale = new Vector3(1, 1.15f, 1); 
         }
     }
 
-    // Assuming you have some mechanism to detect when the player enters/exits the vent
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Vent"))

@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/FlatBeforeElevator.unity
     guid: 67c536150356c324b80dbc178676228a
   - enabled: 1
-    path: Assets/Scenes/meows.unity
+    path: Assets/Scenes/FlatAfterElevator.unity
     guid: ccc7890f903c85941a5366b79895b931
   - enabled: 1
     path: Assets/Scenes/Second Lab.unity
