@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GreenKey : Interactable
+public class GreenKey : MonoBehaviour
 {
 
     public bool inTrigger;
@@ -27,15 +27,6 @@ public class GreenKey : Interactable
                 testingGreen.greenKey = true;
                 Destroy(this.gameObject);
             }
-        }
-    }
-
-    protected override void Interact()
-
-    {
-        if (inTrigger)
-        {
-            Debug.Log("Press E to take key");
         }
     }
 }
