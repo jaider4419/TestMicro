@@ -2,36 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CraneParent : MonoBehaviour
+public class StickyPlatform : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter(Collision collision)
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
+        if (collision.gameObject.name == "Player")
         {
-            GameObject.Find("Player").transform.parent = gameObject.transform;
+            collision.gameObject.transform.SetParent(transform);
         }
-
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnCollisionExit(Collision collision)
     {
-        if (other.tag == "Player")
+        if (collision.gameObject.name == "Player")
         {
-            GameObject.Find("Player").transform.parent = null;
+            collision.gameObject.transform.SetParent(null);
         }
-
     }
 }
-
