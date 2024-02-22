@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RedKey : Interactable
+public class RedKey : MonoBehaviour
 {
 
     public bool inTrigger;
@@ -30,12 +30,4 @@ public class RedKey : Interactable
         }
     }
 
-    protected override void Interact()
-
-    {
-        if (inTrigger)
-        {
-            Debug.Log("Press E to take key");
-        }
-    }
 }
