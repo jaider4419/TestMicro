@@ -12,16 +12,6 @@ public class testingRed : Interactable
     public AudioSource Openyay;
     public AudioSource NeedAkeycard;
 
-    void OnTriggerEnter(Collider other)
-    {
-        inTrigger = true;
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        inTrigger = false;
-    }
-
     void Update()
     {
         if (inTrigger)
@@ -30,8 +20,8 @@ public class testingRed : Interactable
             {
                 if (redKey)
                 {
-                    if (Input.GetKeyDown(KeyCode.E))
                     {
+                        Openyay.Play();
                         open = true;
                         close = false;
                     }
@@ -39,7 +29,6 @@ public class testingRed : Interactable
             }
             else
             {
-                if (Input.GetKeyDown(KeyCode.E))
                 {
                     close = true;
                     open = false;
@@ -61,29 +50,7 @@ public class testingRed : Interactable
 
     protected override void Interact()
     {
-        if (inTrigger)
-        {
-            if (open)
-            {
-                Openyay.Play();
-                Debug.Log("Press E to close");
-            }
-            else
-            {
-                if (redKey)
-                {
-                    Debug.Log("Press E to open");
-                }
-                else
-                {
-                    NeedAkeycard.Play();
-                    Debug.Log("Need a key!");
-                }
-
-
-            }
-
-        }
+        inTrigger = true;
 
     }
 

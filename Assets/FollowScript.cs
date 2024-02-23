@@ -1,46 +1,84 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class EnemyController : MonoBehaviour
+public class enemyController : MonoBehaviour
 {
-    public Transform player; // Reference to the player's transform
-    public float chaseRange = 10f; // Range within which the enemy will start chasing the player
-    public float moveSpeed = 5f; // Speed at which the enemy moves
 
-    private Rigidbody enemyRb;
+    public Transform player;
+    public float playerDistance;
+    public float awareAI = 10f;
+    public float AIMoveSpeed;
+    public float damping = 6.0f;
+
+    public Transform[] navPoint;
+    public UnityEngine.AI.NavMeshAgent agent;
+    public int destPoint = 0;
+    public Transform goal;
+    public static float enemyHealth;
 
     void Start()
     {
-        enemyRb = GetComponent<Rigidbody>();
+        enemyHealth = 100;
+        UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        agent.destination = goal.position;
+
+        agent.autoBraking = false;
+
     }
 
     void Update()
     {
-        if (player == null) // If player is null, find the player
+        Debug.Log(enemyHealth);
+
+        if (enemyHealth <= 0)
+            Destroy(gameObject);
+
+
+        playerDistance = Vector3.Distance(player.position, transform.position);
+
+        if (playerDistance < awareAI)
         {
-            player = GameObject.FindGameObjectWithTag("Player").transform;
+            LookAtPlayer();
+            Debug.Log("Seen");
         }
 
-        if (player != null)
+        if (playerDistance < awareAI)
         {
-            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
-            if (distanceToPlayer <= chaseRange)
+            if (playerDistance < 2f)
             {
-                // Enemy is within chase range, so move towards the player
-                Vector3 direction = (player.position - transform.position).normalized;
-                enemyRb.MovePosition(transform.position + direction * moveSpeed * Time.deltaTime);
+                Chase();
             }
+            else
+                GotoNextPoint();
         }
+
+
+        if (agent.remainingDistance < 0.5f)
+            GotoNextPoint();
+
     }
 
-    void OnCollisionEnter(Collision collision)
+    void LookAtPlayer()
     {
-        if (collision.collider.CompareTag("Player"))
-        {
-            // Restart the scene when the enemy collides with the player
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+        transform.LookAt(player);
     }
+
+
+    void GotoNextPoint()
+    {
+        if (navPoint.Length == 0)
+            return;
+        agent.destination = navPoint[destPoint].position;
+        destPoint = (destPoint + 1) % navPoint.Length;
+    }
+
+
+    void Chase()
+    {
+        transform.Translate(Vector3.forward * AIMoveSpeed * Time.deltaTime);
+    }
+
+
 }
 

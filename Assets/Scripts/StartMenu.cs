@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 public class StartMenu : MonoBehaviour
 {
 
-    [SerializeField] RectTransform fader;
-
     private void Start()
     {
 

@@ -22,6 +22,14 @@ public class ShowUI1 : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider player)
+    {
+        if (player.gameObject.tag == "Player")
+        {
+            audioSource.Stop();
+        }
+    }
+
     IEnumerator WaitForSec()
     {
 

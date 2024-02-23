@@ -1,23 +1,36 @@
 using UnityEngine;
 
-public class KinematicToggle : MonoBehaviour
+public class TestDestroy : Interactable
 {
-    private Rigidbody rb;
+    public float breakForce = 10f;
+    public float breakRadius = 1f;
+    public float destroyDelay = 5f; // Delay before destroying the wall
 
-    void Start()
+    private bool isBroken = false;
+    public AudioSource Wall;
+
+    void BreakWall()
     {
-        // Get the Rigidbody component attached to this GameObject
-        rb = GetComponent<Rigidbody>();
+        if (isBroken) return; // If the wall is already broken, don't break it again
+
+        Rigidbody[] rigidbodies = GetComponentsInChildren<Rigidbody>();
+
+        foreach (Rigidbody rb in rigidbodies)
+        {
+            rb.isKinematic = false;
+            rb.AddExplosionForce(breakForce, transform.position, breakRadius);
+        }
+
+        // Optionally, you can destroy the entire wall after breaking
+        Destroy(gameObject, destroyDelay); // Destroy the wall after a delay
+        isBroken = true; // Set the wall as broken
     }
 
-    void Update()
+    protected override void Interact()
     {
-        // Check if the player presses the "E" key
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            // Toggle the isKinematic property
-            rb.isKinematic = !rb.isKinematic;
-            Debug.Log("destroying");
-        }
+        BreakWall();
+        Wall.Play();
     }
 }
+
+

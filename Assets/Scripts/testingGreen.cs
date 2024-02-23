@@ -12,15 +12,6 @@ public class testingGreen : Interactable
     public AudioSource Openyay;
     public AudioSource NeedAkeycard;
 
-    void OnTriggerEnter(Collider other)
-    {
-        inTrigger = true;
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        inTrigger = false;
-    }
 
     void Update()
     {
@@ -30,8 +21,8 @@ public class testingGreen : Interactable
             {
                 if (greenKey)
                 {
-                    if (Input.GetKeyDown(KeyCode.E))
                     {
+                        Openyay.Play(); 
                         open = true;
                         close = false;
                     }
@@ -39,7 +30,6 @@ public class testingGreen : Interactable
             }
             else
             {
-                if (Input.GetKeyDown(KeyCode.E))
                 {
                     close = true;
                     open = false;
@@ -61,30 +51,7 @@ public class testingGreen : Interactable
 
     protected override void Interact()
     {
-        if (inTrigger)
-        {
-            if (open)
-            {
-                Openyay.Play();
-                Debug.Log("Press E to close");
-            }
-            else
-            {
-                if (greenKey)
-                {
-                    Debug.Log("Press E to open");
-                }
-                else
-                {
-                    NeedAkeycard.Play();
-                    Debug.Log("Need a key!");
-                }
-
-
-            }
-
-        }
-
+        inTrigger = true;
     }
 
 }
