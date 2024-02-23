@@ -50,9 +50,28 @@ public class testingRed : Interactable
 
     protected override void Interact()
     {
-        inTrigger = true;
+        if (inTrigger)
+        {
+            if (close)
+            {
+                if (redKey)
+                {
+                    {
+                        Openyay.Play();
+                        open = true;
+                        close = false;
+                    }
+                }
+            }
+            else
+            {
+                {
+                    close = true;
+                    open = false;
+                }
+            }
+        }
 
     }
-
 }
 
