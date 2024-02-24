@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.041250892, g: 0.07305416, b: 0.12561989, a: 1}
+  m_IndirectSpecularColor: {r: 0.0412504, g: 0.07305349, b: 0.12561938, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4220,37 +4220,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.01, y: 0.0099999225, z: 0.0055784155}
   m_Center: {x: -0.00000001485403, y: 0.0000009920409, z: -0.002210788}
---- !u!114 &386127753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 386127744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 5e12137816bee7042a900d1ee08e4687, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!65 &396171340
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21809,9 +21778,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 143784489141975743, guid: eaef772a75bd83148b54f70289395fee, type: 3}
       insertIndex: -1
       addedObject: {fileID: 386127747}
-    - targetCorrespondingSourceObject: {fileID: 143784489141975743, guid: eaef772a75bd83148b54f70289395fee, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 386127753}
     - targetCorrespondingSourceObject: {fileID: 1620098882267029497, guid: eaef772a75bd83148b54f70289395fee, type: 3}
       insertIndex: -1
       addedObject: {fileID: 634541538}

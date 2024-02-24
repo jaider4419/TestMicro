@@ -7,7 +7,10 @@ public class TestDestroy : Interactable
     public float destroyDelay = 5f; // Delay before destroying the wall
 
     private bool isBroken = false;
-    public AudioSource Wall;
+    private bool audioPlayed = false; // Track if the audio has been played
+
+    public AudioSource WallAudio;
+    public AudioSource BreakAudio;
 
     void BreakWall()
     {
@@ -24,13 +27,23 @@ public class TestDestroy : Interactable
         // Optionally, you can destroy the entire wall after breaking
         Destroy(gameObject, destroyDelay); // Destroy the wall after a delay
         isBroken = true; // Set the wall as broken
+
+        // Play the audio only if it hasn't been played before
+        if (!audioPlayed)
+        {
+            WallAudio.Play();
+            BreakAudio.Play();
+            audioPlayed = true; // Set audioPlayed to true to prevent playing again
+        }
     }
 
     protected override void Interact()
     {
         BreakWall();
-        Wall.Play();
     }
 }
+
+
+
 
 
