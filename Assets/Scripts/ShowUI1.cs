@@ -7,6 +7,7 @@ public class ShowUI1 : MonoBehaviour
     public GameObject uiObject;
     public AudioSource audioSource;
     public AudioSource audioSource2;
+    public AudioSource Music;
     void Start()
     {
         uiObject.SetActive(false);
@@ -19,6 +20,7 @@ public class ShowUI1 : MonoBehaviour
             StartCoroutine("WaitForSec");
             audioSource.Play();
             audioSource2.Play();
+            Music.Play();
         }
     }
 
@@ -27,6 +29,7 @@ public class ShowUI1 : MonoBehaviour
         if (player.gameObject.tag == "Player")
         {
             audioSource.Stop();
+            Music.Stop();
         }
     }
 
@@ -35,6 +38,5 @@ public class ShowUI1 : MonoBehaviour
 
         yield return new WaitForSeconds(5);
         Destroy(uiObject);
-        Destroy(gameObject);
     }
 }

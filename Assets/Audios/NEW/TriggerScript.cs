@@ -11,6 +11,7 @@ public class TriggerScript : MonoBehaviour
     private bool playerInsideTrigger = false;
     private bool hasEntered = false;
     private bool exitingTrigger = false;
+    
 
     void Start()
     {
