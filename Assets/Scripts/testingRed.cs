@@ -12,6 +12,7 @@ public class testingRed : Interactable
     public AudioSource Openyay;
     public AudioSource NeedAkeycard;
 
+
     void Update()
     {
         if (inTrigger)
@@ -50,29 +51,9 @@ public class testingRed : Interactable
 
     protected override void Interact()
     {
-        if (inTrigger)
-        {
-            if (close)
-            {
-                if (redKey)
-                {
-                    {
-                        Openyay.Play();
-                        open = true;
-                        close = false;
-                    }
-                }
-            }
-            else
-            {
-                {
-                    close = true;
-                    open = false;
-                    NeedAkeycard.Play();
-                }
-            }
-        }
+        inTrigger = true;
     }
 
 }
+
 

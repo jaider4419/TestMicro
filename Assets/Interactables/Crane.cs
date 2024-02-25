@@ -7,25 +7,22 @@ public class Crane : Interactable
     [SerializeField]
     private GameObject CraneHinge;
     private bool IsMoving;
+    private bool hasBeenPressed = false; // Flag to track if the button has been pressed
     public AudioSource audiosource;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     protected override void Interact()
     {
-        Debug.Log("Opened");
-        IsMoving = !IsMoving;
-        CraneHinge.GetComponent<Animator>().SetBool("IsMoving", IsMoving);
-        audiosource.Play();
+        // Check if the button has already been pressed
+        if (!hasBeenPressed)
+        {
+            Debug.Log("Opened");
+            IsMoving = !IsMoving;
+            CraneHinge.GetComponent<Animator>().SetBool("IsMoving", IsMoving);
+            audiosource.Play();
 
+            // Set the flag to indicate that the button has been pressed
+            hasBeenPressed = true;
+        }
     }
 }
+

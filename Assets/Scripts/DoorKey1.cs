@@ -2,29 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RedKey : Interactable
+public class DoorKey1 : Interactable
 {
 
     public bool inTrigger;
-    public GameObject doorKey;
+    public GameObject redKey;
 
 
     void Update()
     {
         if (inTrigger)
         {
+
             {
                 testingRed.redKey = true;
                 Destroy(this.gameObject);
             }
         }
-
     }
 
-        protected override void Interact()
+    protected override void Interact()
 
-      {
-        inTrigger = true;
-      }
-
+    {
+        (inTrigger) = true;
+    }
 }

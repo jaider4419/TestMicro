@@ -1,69 +1,61 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class FootstepScript : MonoBehaviour
+public class Footsteps : MonoBehaviour
 {
-    public GameObject footstep;
+    public AudioClip walkingSound;
+    public AudioClip runningSound;
 
-    // Start is called before the first frame update
-    void Start()
+    private AudioSource audioSource;
+    private bool isWalking;
+    private bool isRunning;
+
+    private void Awake()
     {
-        footstep.SetActive(false);
+        audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (Input.GetKey("w"))
+        // Check if both space and another key are pressed simultaneously
+        if (Input.GetKey(KeyCode.Space) && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)))
         {
-            footsteps();
+            isWalking = false;
+            return;
         }
 
-        if (Input.GetKeyDown("s"))
+        // Check for movement keys (WASD)
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
-            footsteps();
+            if (!isWalking)
+            {
+                PlayFootstepSound(walkingSound);
+                isWalking = true;
+            }
+        }
+        else
+        {
+            isWalking = false;
         }
 
-        if (Input.GetKeyDown("a"))
+        // Check for running (Left Shift)
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            footsteps();
+            isRunning = true;
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            isRunning = false;
         }
 
-        if (Input.GetKeyDown("d"))
+        if (isRunning && !audioSource.isPlaying)
         {
-            footsteps();
+            PlayFootstepSound(runningSound);
         }
-
-        if (Input.GetKeyUp("w"))
-        {
-            StopFootsteps();
-        }
-
-        if (Input.GetKeyUp("s"))
-        {
-            StopFootsteps();
-        }
-
-        if (Input.GetKeyUp("a"))
-        {
-            StopFootsteps();
-        }
-
-        if (Input.GetKeyUp("d"))
-        {
-            StopFootsteps();
-        }
-
     }
 
-    void footsteps()
+    private void PlayFootstepSound(AudioClip clip)
     {
-        footstep.SetActive(true);
-    }
-
-    void StopFootsteps()
-    {
-        footstep.SetActive(false);
+        audioSource.clip = clip;
+        audioSource.Play();
     }
 }

@@ -8,6 +8,7 @@ public class ShowUI1 : MonoBehaviour
     public AudioSource audioSource;
     public AudioSource audioSource2;
     public AudioSource Music;
+    public AudioSource Alarms;
     void Start()
     {
         uiObject.SetActive(false);
@@ -21,6 +22,7 @@ public class ShowUI1 : MonoBehaviour
             audioSource.Play();
             audioSource2.Play();
             Music.Play();
+            Alarms.Play();
         }
     }
 

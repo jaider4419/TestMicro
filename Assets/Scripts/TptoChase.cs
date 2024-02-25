@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class TptoChase : MonoBehaviour
 {
+
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Player")
