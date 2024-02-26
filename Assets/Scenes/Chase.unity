@@ -4572,7 +4572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7398d88079ddda47bc3573cd83467dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 7
+  distance: 8
   mask:
     serializedVersion: 2
     m_Bits: 256
@@ -22121,7 +22121,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: a85e061b991d59945920384fea673549, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0.78
+  m_Pitch: 2
   Loop: 1
   Mute: 0
   Spatialize: 0
