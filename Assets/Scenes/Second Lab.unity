@@ -2539,6 +2539,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: table for starting room Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3887255212197643239, guid: 8353b58041a53c14ab24ab5ed4f11240, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 6271573414225017425, guid: 88465029645b3ec4ab6b5401e3f45fbc, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7170,6 +7174,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1751865103}
     m_Modifications:
+    - target: {fileID: 2024641961337887596, guid: 49196f9805b79fb44b10c51f49656ee6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 6271573414225017425, guid: 88465029645b3ec4ab6b5401e3f45fbc, type: 3}
     - target: {fileID: 3485582385413060070, guid: 49196f9805b79fb44b10c51f49656ee6, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -13666,6 +13674,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1751865103}
     m_Modifications:
+    - target: {fileID: 2024641961337887596, guid: 49196f9805b79fb44b10c51f49656ee6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 6271573414225017425, guid: 88465029645b3ec4ab6b5401e3f45fbc, type: 3}
     - target: {fileID: 3485582385413060070, guid: 49196f9805b79fb44b10c51f49656ee6, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -14580,6 +14592,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: table for starting room Variant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3887255212197643239, guid: 8353b58041a53c14ab24ab5ed4f11240, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 6271573414225017425, guid: 88465029645b3ec4ab6b5401e3f45fbc, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
