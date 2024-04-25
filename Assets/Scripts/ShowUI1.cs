@@ -39,6 +39,9 @@ public class ShowUI1 : MonoBehaviour
     {
 
         yield return new WaitForSeconds(5);
+    }
+    public void end()
+    {
         Destroy(uiObject);
     }
 }
